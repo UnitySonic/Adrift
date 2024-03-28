@@ -9,7 +9,11 @@ function App() {
 
   return (
     <>
-      <messageBox></messageBox>
+      <div>
+
+        <messageBox />
+      </div>
+
     </>
   )
 }
