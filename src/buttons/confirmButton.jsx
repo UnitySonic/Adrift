@@ -8,7 +8,7 @@ const ConfirmButton = ({ onClick }) => {
     return (
         <div>
 
-            <button onClick={onClick}>Accept me</button>
+            <button onClick={onClick}>Next</button>
         </div>
     );
 
