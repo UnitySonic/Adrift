@@ -11,39 +11,41 @@ const SkillBox = ({ name }) => {
     useEffect(() => {
         // Update the date and time every second
         const interval = setInterval(() => {
-          setDateTime(new Date());
+            setDateTime(new Date());
         }, tickRate);
-    
+
         // Cleanup function to clear the interval when the component unmounts
         return () => clearInterval(interval);
-      }, []); // Empty dependency array to run this effect only once
+    }, []); // Empty dependency array to run this effect only once
 
-      useEffect(() => {
+    useEffect(() => {
         setExp(prevExp => {
             const newExp = prevExp + 5;
             if (newExp >= nextLevelExpCost) {
                 setLevel(prevLevel => prevLevel + 1);
+                const prevLevelCost = nextLevelExpCost
+
                 setNextLevel(Math.ceil(nextLevelExpCost * 1.15));
-                return nextLevelExpCost - newExp;
+                return newExp - prevLevelCost;
             }
             return newExp;
         });
     }, [dateTime]);
 
-    return(
+    return (
         <>
-        <div style={{
-            width: '400px',
-            height: '150px',
-            border: '2px solid black',
-            justifyContent: 'center',
-            alignItems: 'center'
-        }}>
+            <div style={{
+                width: '400px',
+                height: '150px',
+                border: '2px solid black',
+                justifyContent: 'center',
+                alignItems: 'center'
+            }}>
                 <div>
                     <p>{name}</p>
                     <p>Level: {level}</p>
-                    <p>Exp: {exp}  To Next: {nextLevelExpCost-exp}</p>
-                    <SkillXPBar exp = {exp} nextLevel={nextLevelExpCost}/>
+                    <p>Exp: {exp}  To Next: {nextLevelExpCost - exp}</p>
+                    <SkillXPBar exp={exp} nextLevel={nextLevelExpCost} />
                 </div>
             </div>
         </>
