@@ -14,7 +14,7 @@ const MessageBox = ({ messages }) => {
     return (
         <div style={{
             width: '400px',
-            height: '400px',
+            height: '200px',
             border: '2px solid black',
             display: 'flex',
             flexDirection: 'column', // Stack elements vertically

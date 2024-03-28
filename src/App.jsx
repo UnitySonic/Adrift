@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import MessageBox from './boxes/messageBox'
+import SkillBox from './boxes/skillBox'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -35,6 +36,8 @@ function App() {
         <p>Current Date and Time:</p>
         <p>{dateTime.toLocaleString()}</p>
         <MessageBox messages={messages} />
+        <SkillBox name={"Waiting"}/>
+
       </div>
 
     </>
